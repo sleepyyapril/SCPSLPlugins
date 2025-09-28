@@ -1,11 +1,12 @@
 namespace CoinTricks.Tricks;
 
-public class ExplodeTrick : ICoinTrick
+public class KillTrick : ICoinTrick
 {
-    public string Name { get; } = "Explode";
-    public string Description { get; } = "Explodes the user.";
+    public string Name { get; } = "Kill";
+    public string Description { get; } = "Kills the user.";
     public bool Execute(TrickArgs args)
     {
-        args.CoinItem.Base.
+        args.Player.Kill();
+        return true;
     }
 }

@@ -1,5 +1,8 @@
-bin/
-obj/
-/packages/
-riderModule.iml
-/_ReSharper.Caches/
+.vs/
+**/bin
+**/obj
+.idea/**
+_site/
+References/
+packages/
+**/*.user
