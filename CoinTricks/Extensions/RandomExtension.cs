@@ -23,7 +23,6 @@ public static class RandomExtension
 
         foreach (var pair in dictionary)
         {
-            Logger.Info(chance);
             if (chance <= pair.Value)
             {
                 returnT = pair.Key;
