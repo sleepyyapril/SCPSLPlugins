@@ -37,16 +37,10 @@
         <Reference Include="Assembly-CSharp">
           <HintPath>..\..\..\scpsl\server\Assembly-CSharp.dll</HintPath>
         </Reference>
-        <Reference Include="LabApi, Version=1.1.3.0, Culture=neutral, processorArchitecture=Amd64">
-            <HintPath>..\packages\Northwood.LabAPI.1.1.3\lib\net48\LabApi.dll</HintPath>
-        </Reference>
         <Reference Include="System"/>
         <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Xml"/>
-        <Reference Include="YamlDotNet, Version=11.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
-            <HintPath>..\packages\YamlDotNet.11.0.1\lib\net45\YamlDotNet.dll</HintPath>
-        </Reference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="CoinTricks.cs"/>
@@ -58,7 +52,8 @@
         <Compile Include="Tricks\KillTrick.cs" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="packages.config"/>
+      <PackageReference Include="Northwood.LabAPI" Version="1.1.3" />
+      <PackageReference Include="YamlDotNet" Version="11.0.1" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
