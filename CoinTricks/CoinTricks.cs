@@ -1,4 +1,5 @@
 ﻿using System;
+using CoinTricks.Core;
 using LabApi.Events.CustomHandlers;
 using LabApi.Features;
 using LabApi.Features.Console;

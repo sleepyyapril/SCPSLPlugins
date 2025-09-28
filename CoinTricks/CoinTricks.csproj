@@ -35,21 +35,29 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="Assembly-CSharp">
-          <HintPath>..\..\..\scpsl\server\Assembly-CSharp.dll</HintPath>
+          <HintPath>..\..\SCPSLReferences\Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="System"/>
         <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Xml"/>
+        <Reference Include="UnityEngine.CoreModule">
+          <HintPath>..\..\SCPSLReferences\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+          <HintPath>..\..\SCPSLReferences\UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="CoinTricks.cs"/>
-        <Compile Include="Config.cs"/>
-        <Compile Include="Events.cs"/>
-        <Compile Include="ICoinTrick.cs" />
+        <Compile Include="Core\Config.cs" />
+        <Compile Include="Core\Events.cs" />
+        <Compile Include="Core\ICoinTrick.cs" />
+        <Compile Include="Core\TricksHandler.cs" />
+        <Compile Include="Extensions\RandomExtension.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="TricksHandler.cs" />
         <Compile Include="Tricks\KillTrick.cs" />
+        <Compile Include="Tricks\NothingTrick.cs" />
     </ItemGroup>
     <ItemGroup>
       <PackageReference Include="Northwood.LabAPI" Version="1.1.3" />
