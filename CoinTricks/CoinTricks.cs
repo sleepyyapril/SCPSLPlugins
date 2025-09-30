@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using CoinTricks.Core;
 using LabApi.Events.CustomHandlers;
 using LabApi.Features;
@@ -10,14 +11,14 @@ namespace CoinTricks;
 
 public class CoinTricks : Plugin
 {
-    public override string Name { get; } = "CoinTricks";
+    public override string Name { get; } = "CustomItemsAPI";
     public override string Description { get; } = "Random RNG-based tricks for coins.";
     public override string Author { get; } = "sleepyyapril";
     public override Version Version { get; } = new(1, 0, 0, 0);
     public override Version RequiredApiVersion { get; } = new(LabApiProperties.CompiledVersion);
 
-    public Events Events;
-    public Config Config;
+    public Events? Events = null;
+    public Config? Config;
     public TricksHandler TricksHandler;
 
     private bool _invalidConfig;
@@ -26,13 +27,12 @@ public class CoinTricks : Plugin
     {
         if (_invalidConfig)
         {
-            Logger.Error("CoinTricks has an invalid configuration. Plugin will not run.");
+            Logger.Error("CustomItemsAPI has an invalid configuration. Plugin will not run.");
             return;
         }
         
         Events = new Events(this);
         TricksHandler = new TricksHandler(this);
-        
         TricksHandler.RegisterTricks();
         CustomHandlersManager.RegisterEventsHandler(Events);
     }

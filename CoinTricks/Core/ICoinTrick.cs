@@ -1,3 +1,4 @@
+#nullable enable
 using LabApi.Events.Arguments.PlayerEvents;
 using LabApi.Features.Wrappers;
 

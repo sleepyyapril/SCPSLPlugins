@@ -34,25 +34,25 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="LabApi">
+            <HintPath>$(SL_REFERENCES)\LabApi.dll</HintPath>
+        </Reference>
         <Reference Include="Assembly-CSharp">
-          <HintPath>..\..\SCPSLReferences\Assembly-CSharp.dll</HintPath>
+            <HintPath>$(SL_REFERENCES)\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(SL_REFERENCES)\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
         <Reference Include="System"/>
         <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Xml"/>
-        <Reference Include="UnityEngine.CoreModule">
-          <HintPath>..\..\SCPSLReferences\UnityEngine.CoreModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.PhysicsModule">
-          <HintPath>..\..\SCPSLReferences\UnityEngine.PhysicsModule.dll</HintPath>
-        </Reference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="CoinTricks.cs"/>
         <Compile Include="Core\Config.cs" />
         <Compile Include="Core\Events.cs" />
-        <Compile Include="Core\ICoinTrick.cs" />
+        <Compile Include="Core\ICoinTrick.cs" /> 
         <Compile Include="Core\TricksHandler.cs" />
         <Compile Include="Extensions\RandomExtension.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

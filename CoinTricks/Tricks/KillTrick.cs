@@ -1,3 +1,4 @@
+#nullable enable
 using CoinTricks.Core;
 
 namespace CoinTricks.Tricks;

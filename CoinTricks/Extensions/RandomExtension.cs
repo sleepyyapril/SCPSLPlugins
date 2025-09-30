@@ -1,11 +1,11 @@
+#nullable enable
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Logger = LabApi.Features.Console.Logger;
 
 namespace CoinTricks.Extensions;
 
-// Taken from https://github.com/KadavasKingdom/LabApiExtensions/blob/main/LabApiExtensions/Extensions/RNGExtension.cs
+// Taken and edited from https://github.com/KadavasKingdom/LabApiExtensions/blob/main/LabApiExtensions/Extensions/RNGExtension.cs
 public static class RandomExtension
 {
     /// <summary>

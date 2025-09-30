@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using LabApi.Events.Arguments.PlayerEvents;
 using LabApi.Events.CustomHandlers;
