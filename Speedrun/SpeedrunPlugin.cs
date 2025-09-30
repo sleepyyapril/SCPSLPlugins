@@ -28,7 +28,6 @@ public class SpeedrunPlugin : Plugin<Config>
         TimesManager = new TimesManager(this);
         
         SaveDataManager.Initialize();
-        
         CustomHandlersManager.RegisterEventsHandler(_events);
     }
 
