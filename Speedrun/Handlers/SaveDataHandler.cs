@@ -9,18 +9,19 @@ using LabApi.Features.Wrappers;
 using Mono.Data.Sqlite;
 using Speedrun.Enums;
 
-namespace Speedrun.Data;
+namespace Speedrun.Handlers;
 
-public class SaveDataManager(SpeedrunPlugin plugin)
+public class SaveDataHandler(SpeedrunPlugin plugin)
 {
     private SpeedrunPlugin _plugin = plugin;
     private SqliteConnection? _connection;
     
     public bool Initialize()
     {
+        var databaseFile = _plugin.GetDatabaseFile();
         var connectionString = new SqliteConnectionStringBuilder()
         {
-            DataSource = "speedrun.db"
+            DataSource = _plugin.GetPathForFile(databaseFile)
         }.ToString();
         
         _connection = new SqliteConnection(connectionString);

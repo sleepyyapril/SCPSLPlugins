@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinTricks", "CoinTricks\CoinTricks.csproj", "{069BC560-1854-4E0D-8383-F9C3AA1334AD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speedrun", "Speedrun\Speedrun.csproj", "{A7467D7B-0A31-4835-8512-13B12809F3AB}"
 EndProject
 Global

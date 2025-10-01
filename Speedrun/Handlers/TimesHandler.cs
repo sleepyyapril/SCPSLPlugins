@@ -1,16 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using LabApi.Features.Console;
-using LabApi.Features.Enums;
 using LabApi.Features.Wrappers;
 using Speedrun.Enums;
 using Speedrun.Helpers;
 using Utils.NonAllocLINQ;
 
-namespace Speedrun.Data;
+namespace Speedrun.Handlers;
 
-public class TimesManager(SpeedrunPlugin plugin)
+public class TimesHandler(SpeedrunPlugin plugin)
 {
     private readonly Dictionary<string, List<SpeedrunData>> _times = new();
 
@@ -19,7 +17,7 @@ public class TimesManager(SpeedrunPlugin plugin)
         if (_times.ContainsKey(player.UserId))
             return;
         
-        var times = plugin.SaveDataManager.LoadPlayerTimes(player);
+        var times = plugin.SaveDataHandler.LoadPlayerTimes(player);
         var speedrunData = SpeedrunUtils.GetDictionaryAsDataList(times);
         
         _times.Add(player.UserId, speedrunData);
@@ -35,7 +33,7 @@ public class TimesManager(SpeedrunPlugin plugin)
                 continue;
             
             var currentIndex = currentTime[index];
-            plugin.SaveDataManager.SavePlayerTime(player, currentIndex.Speedrun, currentIndex.Elapsed);
+            plugin.SaveDataHandler.SavePlayerTime(player, currentIndex.Speedrun, currentIndex.Elapsed);
         }
     }
 
@@ -51,7 +49,7 @@ public class TimesManager(SpeedrunPlugin plugin)
         }
     }
 
-    public static List<SpeedrunData> MakeEmpty()
+    private static List<SpeedrunData> MakeEmpty()
     {
         var speedruns = Enum.GetValues(typeof(SpeedrunType)).Cast<SpeedrunType>();
         var speedrunDataList = new List<SpeedrunData>();
@@ -72,8 +70,8 @@ public class TimesManager(SpeedrunPlugin plugin)
         
         return data;
     }
-    
-    public List<SpeedrunData>? GetSpeedrunDataOrNull(Player player)
+
+    private List<SpeedrunData>? GetSpeedrunDataOrNull(Player player)
     {
         if (player.DoNotTrack || !_times.TryGetValue(player.UserId, out var data))
             return null;
