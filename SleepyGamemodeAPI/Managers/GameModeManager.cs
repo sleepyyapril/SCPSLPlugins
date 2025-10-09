@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using SleepyGameModeAPI.Core;
+using SleepyGameModeAPI.CustomEventArgs;
 using SleepyGameModeAPI.Extensions;
 // ReSharper disable MemberCanBePrivate.Global
 
@@ -7,8 +10,9 @@ namespace SleepyGameModeAPI.Managers;
 
 public class GameModeManager
 {
-    private static SleepyGameMode? _activeGameMode;
+    public static event Action<GameModeChangedEventArgs>? OnGameModeChanged; 
     
+    private static SleepyGameMode? _activeGameMode;
     private static Dictionary<string, SleepyGameMode> _gameModes = new();
     private static Dictionary<SleepyGameMode, int> _gameModeWeights = new();
 
@@ -57,52 +61,46 @@ public class GameModeManager
         StartGameMode(gameMode);
     }
     
-    public static void StartGameMode(SleepyGameMode gameMode)
+    public static void StartGameMode(SleepyGameMode gameMode, bool invokeEvent = true)
     {
-        StopGameMode();
+        if (invokeEvent)
+        {
+            var args = new GameModeChangedEventArgs(_activeGameMode, gameMode);
+            OnGameModeChanged?.Invoke(args);
+        }
+        
+        StopGameMode(false);
         
         _activeGameMode = gameMode;
         gameMode.Started();
     }
 
-    public static void StopGameMode()
+    public static void StopGameMode(bool invokeEvent = true)
     {
         if (_activeGameMode == null)
             return;
+
+        if (invokeEvent)
+        {
+            var args = new GameModeChangedEventArgs(_activeGameMode, null);
+            OnGameModeChanged?.Invoke(args);
+        }
         
         _activeGameMode.Stopped();
         _activeGameMode = null;
     }
 
-    public static void StopGameMode(string gameModeName)
-    {
-        gameModeName = gameModeName.ToLower();
-        
-        if (!_gameModes.TryGetValue(gameModeName, out var gameMode))
-            return;
-
-        StopGameMode(gameMode);
-    }
-    
-    public static void StopGameMode(SleepyGameMode gameMode)
-    {
-        if (_activeGameMode == gameMode)
-        {
-            StopGameMode();
-            return;
-        }
-        
-        gameMode.Stopped();
-    }
-
     internal void PickGameMode()
     {
-        StopGameMode();
-        
         if (_gameModeWeights.Count != _gameModes.Count)
             BuildWeights();
 
         var gameMode = _gameModeWeights.GetRandomWeight();
+        StopGameMode(false);
+        
+        var args = new GameModeChangedEventArgs(_activeGameMode, gameMode);
+        OnGameModeChanged?.Invoke(args);
+        
         StartGameMode(gameMode);
     }
 

@@ -56,7 +56,8 @@
         <Compile Include="Commands\StartGameModeCommand.cs" />
         <Compile Include="Commands\StopGameModeCommand.cs" />
         <Compile Include="Core\SleepyGameModeConfig.cs" />
-        <Compile Include="Core\SleepyGameModeEvents.cs" />
+        <Compile Include="Core\EventHandler.cs" />
+        <Compile Include="CustomEventArgs\GameModeChangedEventArgs.cs" />
         <Compile Include="Extensions\RandomExtensions.cs" />
         <Compile Include="Managers\GameModeManager.cs" />
         <Compile Include="SleepyGameMode.cs" />

@@ -5,6 +5,7 @@ using LabApi.Loader.Features.Plugins;
 using LabApi.Loader.Features.Plugins.Enums;
 using SleepyGameModeAPI.Core;
 using SleepyGameModeAPI.Managers;
+using EventHandler = SleepyGameModeAPI.Core.EventHandler;
 
 namespace SleepyGameModeAPI;
 
@@ -18,11 +19,11 @@ public class SleepyGameModeAPI : Plugin<SleepyGameModeConfig>
     public override LoadPriority Priority => LoadPriority.Highest;
 
     public GameModeManager GameModeManager = null!;
-    private SleepyGameModeEvents _events = null!;
+    private EventHandler _events = null!;
 
     public override void Enable()
     {
-        _events = new SleepyGameModeEvents(this);
+        _events = new EventHandler(this);
         GameModeManager = new GameModeManager();
         
         CustomHandlersManager.RegisterEventsHandler(_events);

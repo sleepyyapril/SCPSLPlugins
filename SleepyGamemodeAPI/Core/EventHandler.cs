@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace SleepyGameModeAPI.Core;
 
-public class SleepyGameModeEvents(SleepyGameModeAPI plugin) : CustomEventsHandler
+public class EventHandler(SleepyGameModeAPI plugin) : CustomEventsHandler
 {
     public override void OnServerWaitingForPlayers()
     {

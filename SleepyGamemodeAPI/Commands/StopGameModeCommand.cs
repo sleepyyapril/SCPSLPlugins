@@ -20,15 +20,8 @@ public class StopGameModeCommand : ICommand
             response = "You require RoundEvents to manage game modes.";
             return false;
         }
-
-        if (arguments.Count < 1)
-        {
-            response = "You must specify a game mode.";
-            return false;
-        }
         
-        var gameMode = arguments.At(0);
-        GameModeManager.StopGameMode(gameMode);
+        GameModeManager.StopGameMode();
         
         response = "Game mode stopped.";
         return true;
