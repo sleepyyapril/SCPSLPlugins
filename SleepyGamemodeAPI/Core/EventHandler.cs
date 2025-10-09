@@ -10,8 +10,6 @@ public class EventHandler(SleepyGameModeAPI plugin) : CustomEventsHandler
 {
     public override void OnServerWaitingForPlayers()
     {
-        Logger.Info($"Round start gamemodes: {plugin.Config!.RoundStartGameModes}");
-        
         if (!plugin.Config!.RoundStartGameModes || plugin.Config!.PickPercentage <= 0
             || !GameModeManager.HasGameModes())
             return;

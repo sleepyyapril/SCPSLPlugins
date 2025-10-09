@@ -23,7 +23,7 @@ public class StopGameModeCommand : ICommand
         
         GameModeManager.StopGameMode();
         
-        response = "Game mode stopped.";
+        response = "Current game mode stopped.";
         return true;
     }
 }
