@@ -1,3 +1,4 @@
+#nullable enable
 namespace Speedrun.Core;
 
 public class Config

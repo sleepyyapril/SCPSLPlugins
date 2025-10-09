@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speedrun", "Speedrun\Speedrun.csproj", "{A7467D7B-0A31-4835-8512-13B12809F3AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Murder", "Murder\Murder.csproj", "{D85E15C3-3AE7-4D27-A0D6-13E90CB31C22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SleepyGamemodeAPI", "SleepyGamemodeAPI\SleepyGamemodeAPI.csproj", "{A5344604-C38B-43B6-80EF-38EBE95E2417}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{A7467D7B-0A31-4835-8512-13B12809F3AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7467D7B-0A31-4835-8512-13B12809F3AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7467D7B-0A31-4835-8512-13B12809F3AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D85E15C3-3AE7-4D27-A0D6-13E90CB31C22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D85E15C3-3AE7-4D27-A0D6-13E90CB31C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D85E15C3-3AE7-4D27-A0D6-13E90CB31C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D85E15C3-3AE7-4D27-A0D6-13E90CB31C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5344604-C38B-43B6-80EF-38EBE95E2417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5344604-C38B-43B6-80EF-38EBE95E2417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5344604-C38B-43B6-80EF-38EBE95E2417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5344604-C38B-43B6-80EF-38EBE95E2417}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

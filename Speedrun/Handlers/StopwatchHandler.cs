@@ -1,3 +1,4 @@
+#nullable enable
 using LabApi.Events.CustomHandlers;
 
 namespace Speedrun.Handlers;
